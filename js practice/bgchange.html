@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 97vh;
+            width: 99%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid red;
+        }
+        .container { 
+            background-color: white;
+            color: black;
+        }
+
+        #btn1 {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .dark {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+        <button id="btn1" name="button">Change Mode</button>
+
+    <script>
+        let btn = document.querySelector("#btn1");
+        let div = document.querySelector("body");
+        let currMode = "light";
+
+        btn.addEventListener("click", () => {
+            if (currMode === "light") {
+                div.classList.remove("container");
+                div.classList.add("dark");
+                currMode = "dark";
+                console.log("dark");
+            } else {
+                div.classList.remove("dark");
+                div.classList.add("container");
+                currMode = "light";
+                console.log("light");
+            }
+        });
+    </script>
+</body>
+
+</html>

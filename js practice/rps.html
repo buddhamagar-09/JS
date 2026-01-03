@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .container {
+            width: 420px;
+            min-height: 440px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(60, 60, 120, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px 24px;
+        }
+
+        .rps-game h1 {
+            font-size: 2.2rem;
+            color: #3a3a6c;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+
+        .choices {
+            margin: 24px 0;
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .choice {
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(102, 166, 255, 0.15);
+        }
+
+        .choice:hover {
+            background: linear-gradient(135deg, #66a6ff 0%, #89f7fe 100%);
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .user-choice,
+        .computer-choice {
+            display: inline-block;
+            font-size: 1.05rem;
+            color: #3a3a6c;
+            margin: 6px 0;
+            min-width: 160px;
+        }
+
+        .result {
+            margin-top: 24px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #4e54c8;
+            min-height: 32px;
+        }
+
+        .score {
+            margin-top: 18px;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .UserScore,
+        .computerScore {
+            background: #f7f7fa;
+            border-radius: 8px;
+            padding: 8px 18px;
+            color: #3a3a6c;
+            font-weight: 600;
+            box-shadow: 0 1px 4px rgba(60, 60, 120, 0.07);
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                width: 98vw;
+                min-height: 98vw;
+                padding: 16px 8px;
+            }
+
+            .choices {
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <div class="rps-game">
+            <h1>Rock Paper Scissors</h1>
+            <div class="choices">
+                <button class="choice" onclick="Logic('rock')">🪨 Rock</button>
+                <button class="choice" onclick="Logic('paper')">📄 Paper</button>
+                <button class="choice" onclick="Logic('scissors')">✂️ Scissors</button>
+            </div>
+            <span class="user-choice"></span>
+            <span class="computer-choice"></span>
+            <div class="result">
+                <p id="result-text"></p>
+            </div>
+        </div>
+        <div class="score">
+            <span class="UserScore"></span>
+            <span class="computerScore"></span>
+        </div>
+    </section>
+    <script>
+        let u = 0;
+        let c = 0;
+        let maxround = 15;
+        let round = 0;
+        const emoji = {
+            rock: "🪨",
+            paper: "📄",
+            scissors: "✂️"
+        };
+        const Logic = (type) => {
+            let userChoice = type;
+            let arr = ["rock", "paper", "scissors"];
+            let computerChoice = arr[Math.floor(Math.random() * arr.length)];
+
+            document.querySelector(".user-choice").innerHTML = `Your Choice: ${emoji[userChoice]} <b>${userChoice}</b>`;
+            document.querySelector(".computer-choice").innerHTML = `Computer Choice: ${emoji[computerChoice]} <b>${computerChoice}</b>`;
+
+            if (userChoice === computerChoice) {
+                document.querySelector("#result-text").innerHTML = "🤝 It's a Draw!";
+                document.querySelector("#result-text").style.textAlign = "center";
+            }
+            else if (
+                (userChoice === "rock" && computerChoice === "scissors") ||
+                (userChoice === "paper" && computerChoice === "rock") ||
+                (userChoice === "scissors" && computerChoice === "paper")
+            ) {
+                document.querySelector("#result-text").innerHTML = "🎉 You Won!";
+                document.querySelector("#result-text").style.textAlign = "center";
+                u++;
+                document.querySelector(".UserScore").innerHTML = `Your Score: <b>${u}</b>`;
+            }
+            else {
+                document.querySelector("#result-text").innerHTML = "💻 Computer Won!";
+                document.querySelector("#result-text").style.textAlign = "center";
+                c++;
+                document.querySelector(".computerScore").innerHTML = `Computer Score: <b>${c}</b>`;
+            }
+        
+        round++;
+
+        if (round >= maxround) {
+            if (u > c) {
+                alert(`Game Over! You won the game with a score of ${u} to ${c}.`);
+            } else if (c > u) {
+                alert(`Game Over! Computer won the game with a score of ${c} to ${u}.`);
+            } else {
+                alert(`Game Over! It's a draw with both scoring ${u}.`);
+            }
+            // Reset scores and round count
+            u = 0;
+            c = 0;
+            round = 0;
+            document.querySelector(".UserScore").innerHTML = `Your Score: <b>${u}</b>`;
+            document.querySelector(".computerScore").innerHTML = `Computer Score: <b>${c}</b>`;
+            document.querySelector(".user-choice").innerHTML = '';
+            document.querySelector(".computer-choice").innerHTML = '';
+            document.querySelector("#result-text").innerHTML = '';
+        } 
+    };
+
+        // Initialize scores on page load
+        document.querySelector(".UserScore").innerHTML = `Your Score: <b>${u}</b>`;
+        document.querySelector(".computerScore").innerHTML = `Computer Score: <b>${c}</b>`;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       div{
+            height:500px;
+            width: 500px;
+            border: 2px solid black;
+            margin-top: 20px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: lightblue;
+            justify-self: center;
+       }
+       .container{
+        display: flex;
+        justify-content: center;
+        font-weight: 1000;
+        align-items: center;
+        color: rgb(139, 12, 182);
+        font-size: 50px;
+       }
+    </style>
+</head>
+
+<body>
+
+    <button id="btn1">Click here</button>
+    <div>
+
+    </div>
+
+    <script>
+
+        // let btn1 = document.querySelector("#btn1");
+
+        // btn1.onclick = (e) => {
+        //     window.alert("hi how are you");
+        //     window.alert(e.type);
+        //     window.alert(`X: ${e.clientX}, Y: ${e.clientY}`);
+        //     window.alert(e.target);
+        // }
+
+        // btn1.addEventListener("click", () => {
+        //     console.log("button was clicked -1");
+        // });
+
+        // const handler2 = () => {
+        //     console.log("button was clicked -2");
+        // };
+        // btn1.addEventListener("click", handler2);
+
+        // btn1.addEventListener("click", () => {
+        //     console.log("button was clicked -3");
+        // });
+
+        // btn1.addEventListener("click", () => {
+        //     console.log("button was clicked -4");
+        // });
+
+        // btn1.removeEventListener("click", handler2);
+        // to remove the handler -3
+        // put that handle into a variable and pass it .
+
+
+let div = document.querySelector("div");
+div.onmouseover = (e) => {
+    if (e.target.innerText === "") {
+        e.target.innerText = "mouse is here";
+    }
+    e.target.style.transition = "background-color 0.5s";
+    div.classList.add("container");
+};
+
+div.onmouseout = (e) => {
+    e.target.innerText = "";
+    e.target.style.backgroundColor = "lightblue";
+    e.target.style.transition = "background-color 0.5s";
+
+};
+    </script>
+
+</body>
+
+</html>

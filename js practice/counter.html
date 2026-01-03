@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        #counter {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: lightblue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="counter">0</h1>
+    <button id="increment">Increment</button>
+    <button id="decrement">Decrement</button>
+    <button id="reset">Reset</button>
+
+    <script>
+
+        let count = 0;
+        let c = document.getElementById("counter");
+        let inc = document.getElementById("increment");
+        let dec = document.getElementById("decrement");
+        let res = document.getElementById("reset");
+
+
+        inc.addEventListener("click", (e) => {
+            count++;
+            c.innerHTML = count;
+            c.style.color = count > 0 ? "green" : count < 0 ? "red" : "black";
+        });
+
+        dec.addEventListener("click", (e) => {
+
+            count--;
+            c.innerHTML = count;
+            c.style.color = count > 0 ? "green" : count < 0 ? "red" : "black";
+        });
+
+        res.addEventListener("click", (e) => {
+            count = 0
+            c.innerHTML = count;
+            c.style.color = count > 0 ? "green" : count < 0 ? "red" : "black";
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowUp") inc.click();
+            else if (e.key === "ArrowDown") dec.click();
+        });
+
+
+
+    </script>
+</body>
+
+</html>

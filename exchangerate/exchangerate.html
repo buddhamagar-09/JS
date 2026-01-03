@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <section class="bg-gray-100 min-h-screen flex items-center justify-center">
+        <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+            <h1 class=" text-center font-bold text-2xl">Currency Converter</h1>
+            <form action="">
+                <div class="mb-4 flex flex-col mt-4">
+                    <label for="Amount" class="mt-2">Enter Amount:</label>
+                    <input type="text" id="Amount" name="Amount" class="border p-2 rounded" placeholder="Enter amount">
+                </div>
+                <div class="container flex justify-between  rounded">
+                    <div class="mb-4">
+                        <p class=" font-bold">From</p>
+                        <div class="flex items-center  rounded-2xl">
+                            <img src="https://flagsapi.com/US/flat/64.png" alt="" class="mr-2 max-w-14 h-16 w-14">
+                            <select name="From" id="From" class=" p-2 rounded outline-none">
+                            </select>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right-arrow-left mt-10 text-2xl"></i>
+                    <div class="mb-4">
+                        <p class="ml-2 font-bold">To</p>
+                        <div class="flex items-center rounded-2xl">
+                            <img src="https://flagsapi.com/NP/flat/64.png" alt="" class="mr-2 h-16 max-w-14 w-14">
+                            <select name="To" id="To" class=" p-2 rounded outline-none">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <p id="result" class="mt-4">1 USD = 100 NPR </p>
+                <button class="bg-blue-500 text-white p-2 rounded mt-4 w-full cursor-pointer" id="button">Convert</button>
+            </form>
+        </div>
+    </section>
+    <script src="code.js"></script>
+    <script src="apilogic.js"></script>
+</body>
+</html>

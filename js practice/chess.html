@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chess-board {
+            width: 320px;
+            height: 320px;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+        }
+
+        .square {
+            width: 40px;
+            height: 40px;
+        }
+      </style>
+</head>
+
+<body>
+    <section class="container">
+        <div class="chess-board"></div>
+    </section>
+
+    <script>
+        let board = document.querySelector(".chess-board");
+
+        for (let row = 0; row < 8; row++) {
+            for (let col = 0; col < 8; col++) {
+                const square = document.createElement("div");
+                square.classList.add("square");
+            
+        if((row+col)%2 === 0)
+        {
+            // square.classList.add("black");
+            square.style.backgroundColor = "black";
+            square.style.color = "white";
+        }
+        else{
+            square.style.backgroundColor = "white";
+            square.style.color = "black";
+            square.style.border = "1px solid black";
+
+        }
+
+        board.appendChild(square);
+    }
+}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container
+        {
+            border: 2px solid black;
+         
+        
+            width: 300px;
+            height: 200px;
+        
+            background-color: lightblue;
+        }
+        .newclass
+        {
+            border: 5px dashed red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 400px;
+            width: 400px;
+            background-color: lightgreen;
+            margin: auto;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            color: darkblue;
+            box-shadow: 5px 5px 10px grey;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+<p>This is a div</p>
+<ul style="visibility: hidden;">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+
+    </div>
+
+    <script>
+let btn = document.createElement("button");
+btn.innerText = "ShowList";
+btn.style.backgroundColor = "orange";
+btn.style.color = "white";
+let div = document.querySelector(".container");
+// div.after(btn);
+// div.before(btn);
+// div.prepend(btn);
+div.append(btn);
+btn.onclick = function() {
+    let ul = document.querySelector("ul");
+    if (ul.style.visibility === "hidden") {
+        ul.style.visibility = "visible";
+    } else {
+        ul.style.visibility = "hidden";
+    }
+}
+
+// let ul = document.querySelector("ul");
+
+// ul.style.listStyleType = "none";
+
+// let li = document.querySelector("li");
+// li.style.textDecoration = "none";
+
+// div.removeChild(ul);
+
+div.classList.add("newclass");
+div.classList.remove("container");
+    </script>
+</body>
+</html>
