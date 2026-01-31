@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        section{
+        background-color:blue;
+        height: 100vh;
+        width: 100%;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <section id="sec">
+
+    </section>
+
+    <script>
+        let section = document.getElementById("sec");
+        let color = ["red","green","yellow"];
+        let currentColor = 0;
+        console.log(color.length);
+
+        setInterval( () => {
+            currentColor = (currentColor + 1) % color.length;
+            section.className = color[currentColor];
+        },500);
+    </script>
+</body>
+</html>
