@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        #loginButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+        }
+        #loginButton:hover {
+            background-color: #0056b3;
+        }
+        section {
+            height: 580px;
+            padding: 20px;
+            background-color: #0056b3;
+            /* color: white; */
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+        .faq_container{
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .faq{
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        .faq_que{
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .faq_answer{
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <button id="loginButton">Login</button>
+    </header>
+
+    <section>
+<div class="faq_container">
+<div class="faq">
+    <div class="faq_que">
+        <h3>What is your return policy?</h3>
+        <span>+</span>
+    </div>
+    <div class="faq_answer">
+        <p>Our return policy allows returns within 30 days of purchase with a valid receipt. Items must be in original condition.</p>
+    </div>
+</div>
+<div class="faq">
+    <div class="faq_que">
+        <h3>What is your return policy?</h3>
+        <span>+</span>
+    </div>
+    <div class="faq_answer">
+        <p>Our return policy allows returns within 30 days of purchase with a valid receipt. Items must be in original condition.</p>
+    </div>
+</div>
+<div class="faq">
+    <div class="faq_que">
+        <h3>What is your return policy?</h3>
+        <span>+</span>
+    </div>
+    <div class="faq_answer">
+        <p>Our return policy allows returns within 30 days of purchase with a valid receipt. Items must be in original condition.</p>
+    </div>
+</div>
+<div class="faq">
+    <div class="faq_que">
+        <h3>What is your return policy?</h3>
+        <span>+</span>
+    </div>
+    <div class="faq_answer">
+        <p>Our return policy allows returns within 30 days of purchase with a valid receipt. Items must be in original condition.</p>
+    </div>
+</div>
+<div class="faq">
+    <div class="faq_que">
+        <h3>What is your return policy?</h3>
+        <span>+</span>
+    </div>
+    <div class="faq_answer">
+        <p>Our return policy allows returns within 30 days of purchase with a valid receipt. Items must be in original condition.</p>
+    </div>
+</div>
+
+</div>
+    </section>
+    <footer>
+        <p>Footer content here</p>
+
+    </footer>
+
+    <script>
+        let faq_que = document.querySelectorAll('.faq');
+        let faq_answer = document.querySelectorAll('.faq_answer');
+
+        faq_que.forEach((faq) => {
+faq.addEventListener('click', () => {
+    let answer = faq.querySelector('.faq_answer');
+    if (answer.style.maxHeight) {
+        answer.style.maxHeight = null;
+        faq.querySelector('span').textContent = '+';
+    } else {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        faq.querySelector('span').textContent = '-';
+    }
+});       
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+
+    <body>
+        <header
+            class="container h-20 w-full flex flex-col lg:flex-row items-center bg-gray-900 shadow-lg px-4 lg:px-6 fixed top-0 left-0 z-50">
+            <!-- Logo Section -->
+            <div class="w-full lg:w-[20%] flex justify-center lg:justify-start items-center mb-2 lg:mb-0">
+                <span class="text-2xl lg:text-3xl font-bold text-white tracking-wide">Moto<span
+                        class="text-orange-600">Mods</span></span>
+            </div>
+            <!-- Search Bar Section -->
+            <div class="w-full lg:w-[50%] flex items-center justify-center">
+                <div class="flex w-full lg:w-4/5 bg-gray-200 rounded-2xl overflow-hidden">
+                    <input type="search" id="search" placeholder="Search products, brands and more..."
+                        class="px-4 py-2 w-full focus:outline-none bg-gray-200 text-sm lg:text-base" />
+                    <button
+                        class="bg-orange-500 px-4 py-2 text-white text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navbar Section -->
+        <section id="navbar" class="h-[60px] bg-gray-50 shadow-md fixed top-20 left-0 w-full z-40">
+            <div class="container h-full mx-auto flex items-center justify-between px-6">
+                <!-- Hamburger for mobile -->
+                <button id="hamburger" class="lg:hidden text-3xl text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- Navigation Links -->
+                <nav id="navLinks" class="bg-gray-100 px-10 py-4 rounded-lg flex-1 hidden lg:flex">
+                    <ul class="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6">
+                        <li>
+                            <a href="#" class="font-medium text-gray-700">Home</a>
+                        </li>
+                        <li class="relative group">
+                            <a href="#" class="font-medium text-gray-700">Products</a>
+                            <!-- Dropdown -->
+                            <div
+                                class="absolute left-0 mt-2 w-48 bg-white z-50 rounded shadow-lg opacity-0 translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300">
+                                <a href="#accessories"
+                                    class="block px-4 py-2 hover:bg-gray-200 transition-colors duration-200">Accessories</a>
+                                <a href="#helmet"
+                                    class="block px-4 py-2 hover:bg-gray-200 transition-colors duration-200">Helmets</a>
+                                <a href="#accessories"
+                                    class="block px-4 py-2 hover:bg-gray-200 transition-colors duration-200">Riding
+                                    Gear</a>
+                                <a href="#"
+                                    class="block px-4 py-2 hover:bg-gray-200 transition-colors duration-200">Maintenance
+                                    Products</a>
+                                <a href="#mobil"
+                                    class="block px-4 py-2 hover:bg-gray-200 transition-colors duration-200">Engine
+                                    Oils</a>
+                                <a href="#"
+                                    class="block px-4 py-2 hover:bg-gray-200 transition-colors duration-200">Electronics
+                                    & Gadgets</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" class="font-medium text-gray-700">Blog</a>
+                        </li>
+                        <li>
+                            <a href="aboutus.html" class="text-gray-700 font-medium">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="text-gray-700 font-medium">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Account & Cart -->
+                <div id="accountCart" class="flex items-center justify-center pr-2 space-x-3">
+                    <button class="text-gray-700 hover:text-red-500 transition font-bold cursor-pointer"
+                        id="login_button">
+                        <ion-icon name="person-circle-outline" class="text-xl font-bold"></ion-icon>
+                    </button>
+                    <button class="text-gray-700 hover:text-red-500 transition font-bold cursor-pointer cart_button">
+                        <ion-icon name="cart-outline" class="text-xl font-semibold"></ion-icon>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="fixed top-20 left-0 w-full bg-gray-50 z-50 flex flex-col lg:hidden hidden">
+                <div class="flex justify-between items-center px-6 py-4 border-b">
+                    <span class="text-2xl font-bold text-gray-900">Menu</span>
+                    <button id="closeMenu" class="text-2xl text-gray-700 focus:outline-none">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <ul class="flex flex-col space-y-4 px-6 py-4">
+                    <li><a href="#" class="font-medium text-gray-700">Home</a></li>
+                    <li>
+                        <details>
+                            <summary class="font-medium text-gray-700 cursor-pointer">Products</summary>
+                            <ul class="ml-4 mt-2 flex flex-col space-y-2">
+                                <li><a href="#accessories" class="text-gray-700">Accessories</a></li>
+                                <li><a href="#helmet" class="text-gray-700">Helmets</a></li>
+                                <li><a href="#ridinggear" class="text-gray-700">Riding Gear</a></li>
+                                <li><a href="#" class="text-gray-700">Maintenance Products</a></li>
+                                <li><a href="#mobil" class="text-gray-700">Engine Oils</a></li>
+                                <li><a href="#" class="text-gray-700">Electronics & Gadgets</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a href="#" class="font-medium text-gray-700">Blog</a></li>
+                    <li><a href="aboutus.html" class="text-gray-700 font-medium">About Us</a></li>
+                    <li><a href="#contact" class="text-gray-700 font-medium">Contact Us</a></li>
+                </ul>
+
+                <div class="flex justify-end items-center px-6 py-4 border-t space-x-3">
+                    <button class="text-gray-700 hover:text-red-500 transition font-bold cursor-pointer"
+                        id="login_button_mobile">
+                        <ion-icon name="person-circle-outline" class="text-xl font-bold"></ion-icon>
+                    </button>
+                    <button class="text-gray-700 hover:text-red-500 transition font-bold cursor-pointer cart_button">
+                        <ion-icon name="cart-outline" class="text-xl font-semibold"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <script>
+            // Hamburger menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeMenu = document.getElementById('closeMenu');
+            const navLinks = document.getElementById('navLinks');
+
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+            });
+
+            closeMenu.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+
+            // Hide navLinks on mobile
+            function handleResize() {
+                if (window.innerWidth < 1024) {
+                    navLinks.classList.add('hidden');
+                } else {
+                    navLinks.classList.remove('hidden');
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+            window.addEventListener('resize', handleResize);
+            handleResize();
+        </script>
+    </body>
+
+</html>

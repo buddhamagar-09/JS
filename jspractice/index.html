@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            background-color: rgb(136, 17, 190);
+            color: white;
+        }
+
+        section {
+            margin-top: 20px;
+            text-align: center;
+            background-color: lime;
+            height: 200px;
+            width: 300px;
+            justify-self: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 8px 20px;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 2px solid black;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* button:hover {
+            background-color: black;
+            color: white;
+        } */
+    </style>
+</head>
+
+<body>
+    <h1>Three Divs</h1>
+    <button onclick="changedisplay()">change display</button>
+    <button onclick="changeText()">change innerText</button>
+    <div id="container">
+        <div class="box">first div</div>
+        <div class="box">second div</div>
+        <div class="box">third div</div>
+    </div>
+
+
+
+    <section>
+        <button class="btn" onclick="changeColor()">
+           change mode
+        </button>
+    </section>
+
+
+    <script>
+
+        changeText = () => {
+            let divs = document.getElementsByClassName("box");
+            // Check if the first div is already changed
+            if (divs[0].innerText.startsWith("this is div number")) {
+                divs[0].innerText = "first div";
+                divs[1].innerText = "second div";
+                divs[2].innerText = "third div";
+            } else {
+                for (let i = 0; i < divs.length; i++) {
+                    divs[i].innerText = `this is div number ${i + 1}`;
+                }
+            }
+        }
+
+        changeColor = () => {
+            let sec = document.querySelector("section");
+            if (sec.style.backgroundColor == "lime") {
+                sec.style.backgroundColor = "red";
+                sec.style.color = "white";
+                document.getElementsByClassName("btn").innerText = "light";
+            }
+            else {
+                sec.style.backgroundColor = "lime";
+                sec.style.color = "black";
+                document.getElementsByClassName("btn").innerText = "dark";
+            }
+        }
+
+        changedisplay = () => {
+            let n = document.getElementById("container");
+            // Get current flex direction
+            let currentDirection = getComputedStyle(n).flexDirection;
+            if (currentDirection === "row") {
+                n.style.flexDirection = "column";
+            } else {
+                n.style.flexDirection = "row";
+            }
+        }
+    </script>
+
+    <script src="first.js"> </script>
+    <script src="second.js"> </script>
+    <script src="function.js"></script>
+</body>
+
+</html>

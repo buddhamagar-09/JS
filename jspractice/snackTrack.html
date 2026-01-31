@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #container {
+            /* text-align: center; */
+            margin-top: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            width: max-content;
+            height: max-content;
+            padding: 20px;
+            background-color: lightgrey;
+        }
+
+        #text {
+            height: 30px;
+            width: 300px;
+            font-size: 20px;
+            /* font-weight: bold; */
+        }
+
+        #btn1,
+        #remove {
+            margin-top: 20px;
+            height: 40px;
+            width: 100px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: lightblue;
+            border-radius: 10px;
+
+        }
+
+        #unordered_list {
+            margin-top: 20px;
+            font-size: 25px;
+            font-weight: bold;
+            color: blueviolet;
+        }
+
+        .newclass {
+            font-size: 14px;
+            padding: 2px 6px;
+            margin-left: 10px;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 300px;
+            font-weight: bold;
+            /* same as your input width */
+        }
+
+        .glow:focus {
+            box-shadow: 0 0 8px 1px #941beb;
+            outline: none;
+            border-color: #00f7ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Adding the Food Items</h1>
+
+    <section id="container">
+        <label for="input"> Enter Your Favourite Food:</label><br><br>
+        <input type="text" id="text" name="text" class="glow"><br><br>
+        <ol id="unordered_list" type="1" start="1">
+
+        </ol>
+        <button id="btn1">Add</button>
+    </section>
+
+    <script>
+        let btn = document.getElementById("btn1");
+        let ol = document.querySelector("ol");
+
+        // creating the click event of function the logic
+
+        btn.addEventListener("click", () => {
+            let val = document.getElementById("text").value;
+            let li = document.createElement("li");
+            li.innerText = val;
+
+            if (val.trim() === "") {
+                window.alert("The list cannot be empty hai bro.");
+                return;
+            }
+            let delbtn = document.createElement("button");
+            delbtn.classList.add("newclass");
+            delbtn.innerHTML = "X";
+
+            delbtn.addEventListener("click", () => {
+                // removing the list
+                if (confirm("Do you really want toremopve the food Item ?")) {
+                    ol.removeChild(li);
+                }
+            });
+            // adding the list and btn in the html
+            li.appendChild(delbtn);
+            ol.appendChild(li);
+
+            // making the input field empty after adding
+            let n = document.getElementById("text").value = "";
+            n.focus();
+        });
+
+
+        // to perform the click event  by pressing the Enter key
+        document.getElementById("text").addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                btn.click();
+            }
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

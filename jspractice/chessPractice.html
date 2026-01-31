@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 480px;
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+        .square {
+            height: 60px;
+            width: 60px;
+        }
+
+        .dark {
+            background-color: black;
+        }
+
+        .light {
+            background-color: white;
+        }
+
+        .green {
+            background-color: rgb(159, 5, 255);
+        }
+
+        .blue {
+            background-color: rgb(24, 255, 251);
+        }
+        button{
+            padding: 10px 15px;
+            background-color: gray;
+            border-radius: 5px;
+            margin-top: 20px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="container">
+    </section>
+    <button id="btn">Change color</button>
+
+    <script>
+
+        let container = document.getElementById("container");
+        for (let i = 0; i < 8; i++) {
+            for (let j = 0; j < 8; j++) {
+                let div = document.createElement("div");
+                div.classList.add("square");
+                if ((i + j) % 2 === 0) {
+                    div.classList.add("dark");
+                }
+                else {
+                    div.classList.add("light");
+                }
+                container.appendChild(div);
+            }
+        }
+
+        const btn = document.querySelector("#btn");
+        btn.addEventListener("click", (e) => {
+            let squares = document.querySelectorAll(".square");
+            squares.forEach(div => {
+                if (div.classList.contains("dark")) {
+                    div.classList.toggle("green");
+                }
+                if (div.classList.contains("light")) {
+                    div.classList.toggle("blue");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
